@@ -113,6 +113,19 @@ export default function Footer() {
           <p>
             © {year} {site.name}. All rights reserved.
           </p>
+          <p className="inline-flex items-center gap-2">
+            <span>Built by</span>
+            <a
+              href="https://fossilui.buzz"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group font-medium"
+            >
+              <span className="text-bone transition-colors group-hover:text-volt">Fossil</span>
+              <span className="text-ash underline underline-offset-2 transition-colors group-hover:text-volt">UI</span>
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+          </p>
           <ul className="flex gap-6">
             {legalNav.map((item) => (
               <li key={item.to}>

@@ -28,8 +28,16 @@ export default function Navbar() {
       frame = requestAnimationFrame(() => {
         const y = window.scrollY
         setScrolled(y > 24)
-        setHidden(y > 480 && y > lastY + 2)
-        if (Math.abs(y - lastY) > 2) lastY = y
+        if (y <= 480) {
+          setHidden(false)
+          lastY = y
+          return
+        }
+        // Smooth scrolling yields tiny per-frame deltas; only flip after a clear directional move.
+        const delta = y - lastY
+        if (Math.abs(delta) < 12) return
+        setHidden(delta > 0)
+        lastY = y
       })
     }
     onScroll()
